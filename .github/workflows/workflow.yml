@@ -17,3 +17,8 @@ jobs:
         run: |
           yarn
           yarn generate
+      - name: Download project as artifact
+        uses: actions/upload-artifact@main
+        with: 
+          name: bundle
+          path: dist
