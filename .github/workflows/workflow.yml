@@ -2,18 +2,19 @@ name : Weather app
 
 on: 
   push:
-    branches: "main"
+    branches: 
+    - main
 
 jobs:
   build:
       runs-on: ubuntu-latest
 
 steps:
-    -name: Download project from git
+  - name: Download project from git
     uses: actions/checkout@v2     
 
-  -name: Build project
-    run: 
-    yarn
+  - name: Build project
+    run: | 
+    yarn 
     yarn generate
    
