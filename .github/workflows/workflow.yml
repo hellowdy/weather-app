@@ -13,19 +13,23 @@ jobs:
       - name: Download project from git
         uses: actions/checkout@v2 
 
-      - name: Set up Node.js    
-        uses: actions/setup-node@v2
-        with: 
-          node-version: '19'
+      # - name: Set up Node.js    
+      #   uses: actions/setup-node@v2
+      #   with: 
+      #     node-version: '19'
 
-      - name: Install dependencies
-        run: npm install
+      # - name: Install dependencies
+      #   run: npm install
 
       - name: Build project
         run: npm run build
-        
+
       - name: Download project as artifact
         uses: actions/upload-artifact@main
         with: 
           name: bundle
           path: dist
+        
+      deploy:
+        runs-on: ubuntu-latest
+        needs: build
